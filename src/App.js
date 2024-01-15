@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Map from "react-map-gl"
-import DeckGL, {GeoJsonLayer} from 'deck.gl'
+import DeckGL from 'deck.gl'
 const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiYWRyaWFuazQ0MSIsImEiOiJjbHJleXlsZXMxcWh0MmlueDFoMGY2dm85In0._nP2y2DY0PUQY0Arkhc1jQ';
 const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json';
 
@@ -13,7 +13,7 @@ const INITIAL_VIEW_STATE ={
 }
 
 function App() {
-  const [viewport, setVieport] = useState(INITIAL_VIEW_STATE)
+  const [viewport] = useState(INITIAL_VIEW_STATE)
   
   return (
     <DeckGL
