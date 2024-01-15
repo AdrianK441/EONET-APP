@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Map from "react-map-gl"
+import DeckGL, {GeoJsonLayer} from 'deck.gl'
+const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiYWRyaWFuazQ0MSIsImEiOiJjbHJleXlsZXMxcWh0MmlueDFoMGY2dm85In0._nP2y2DY0PUQY0Arkhc1jQ';
+const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json';
+
+const INITIAL_VIEW_STATE ={
+  latitude: 0,
+  longitude: 0,
+  zoom: 3,
+  bearing: 0,
+  pitch: 30
+}
 
 function App() {
+  const [viewport, setVieport] = useState(INITIAL_VIEW_STATE)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DeckGL
+      initialViewState = {viewport}
+      controller={true} >
+      <Map mapStyle={MAP_STYLE} mapboxAccessToken= {MAPBOX_ACCESS_TOKEN} />
+    </DeckGL>
   );
 }
 
