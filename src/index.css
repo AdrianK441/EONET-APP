@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dropdown {
+  position: absolute;
+  top: 60px;
+  width: 363px;
+  transform: translateX(14%);
+  background-color: #242526;
+  border: 1px solid #474a4d;
+  padding: 0.5rem;
+  overflow: hidden;
+  z-index: 100;
+  transition: height 100ms ease;
+  border-radius: 10px;
+}
